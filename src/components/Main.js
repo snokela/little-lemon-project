@@ -3,7 +3,9 @@ import React from "react";
 const Main = () => {
   return (
     <main>
-      <p>Main content goes here</p>
+      <section>This week's specials go here!</section>
+      <section>Testimonials go here!</section>
+      <section>The entrepreneur introduction goes here!</section>
     </main>
   );
 }
