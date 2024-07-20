@@ -13,10 +13,6 @@ main {
   margin: 0 0 10px 0;
 }
 
-/* .specials-header {
-  text-align: center;
-} */
-
 .specials {
   display: grid;
   gap: 20px;

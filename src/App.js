@@ -1,17 +1,26 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Header from './components/Header';
-import Main from './components/Main';
+import HomePage from './components/HomePage';
+import SelectRestaurantPage from './components/SelectRestaurantPage';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className='app-container'>
-    <Nav />
-    <Header />
-    <Main />
-    <Footer />
-    </div>
+    <Router>
+      <div className='app-container'>
+        <Nav />
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/select-restaurant" element={<SelectRestaurantPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

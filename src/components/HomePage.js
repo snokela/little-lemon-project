@@ -1,19 +1,20 @@
 import React from "react";
-import './Main.css';
+import './HomePage.css';
 import special1Img from '../images/greek salad.jpg'
 import special2Img from '../images/bruchetta.png'
 import special3Img from '../images/lemon dessert.jpg'
 import ratingStars from '../images/ratingStars.png'
 import entrepreneur1 from '../images/Mario and Adrian A.jpg'
 import entrepreneur2 from '../images/Mario and Adrian b.jpg'
+import NavigateButton from "./NavigateButton";
 
-const Main = () => {
+const HomePage = () => {
   return (
     <main>
         <section className="specials">
           <div className="specials-header">
             <h2>This week's specials</h2>
-            <button>Online Menu</button>
+            <NavigateButton>Online Menu</NavigateButton>
           </div>
           <div className="specials-content">
             <div className="special">
@@ -76,4 +77,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default HomePage;
