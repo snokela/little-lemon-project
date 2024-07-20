@@ -1,0 +1,49 @@
+main {
+ background-color: #edefee;;
+}
+
+.select-restaurant-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.select-restaurant-content h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group select {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
