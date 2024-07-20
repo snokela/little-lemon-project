@@ -1,0 +1,185 @@
+main {
+  display: grid;
+  gap: 20px;
+  background-color: #edefee;
+  width: 100%;
+}
+
+.specials, .testimonials, .entrepreneur {
+  padding: 20px;
+}
+
+.specials h2, .testimonials h2, .entrepreneur h2 {
+  margin: 0 0 10px 0;
+}
+
+/* .specials-header {
+  text-align: center;
+} */
+
+.specials {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+.specials h2 {
+  margin: 0;
+  grid-row: 1;
+  padding-bottom: 20px;
+}
+
+.specials button {
+  grid-row: 2;
+  justify-self: start;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: black;
+  background-color: #f4ce14;
+  border-radius: 16px;
+  border: none;
+  width: auto;
+  margin-left: auto;
+}
+
+.specials-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  grid-row: 2;
+  justify-items: center;
+  align-items: center;
+}
+
+.special {
+  text-align: center;
+  border: solid  1px  black;
+  border-radius: 16px;
+  width: 80%;
+}
+
+.special h6 {
+  text-align: start;
+}
+
+.special img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-rows: auto auto;
+  /* justify-content: center; */
+}
+
+.testimonials h2 {
+  grid-row: 1;
+  align-self: start;
+  /* text-align: center; */
+  margin-bottom: 30px ;
+}
+
+.testimonials-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  grid-row: 2;
+  margin-bottom: 20px;
+}
+
+.testimonial {
+  text-align: center;
+  background-color: #fbdabb;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.testimonial img {
+  max-width: 100%;
+  height: auto;
+}
+
+.entrepreneur {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+  background-color: #495e57;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-bottom: -20px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: 350px;
+}
+
+.entrepreneur-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #edefee;
+  padding: 20px;
+}
+
+.entrepreneur-text h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #f4ce14;
+}
+
+.entrepreneur-text h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #edefee;
+}
+
+.entrepreneur-images {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.entrepreneur-images img {
+  position: absolute;
+  width:30%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.entrepreneur-images img:first-child {
+  top: 0;
+  z-index: 0;
+}
+
+.entrepreneur-images img:last-child {
+  top: 50px;
+  left: 140px;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .specials-content {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-content {
+    grid-template-columns: 1fr;
+  }
+
+  .entrepreneur {
+    grid-template-columns: 1fr;
+  }
+
+  .specials button {
+    align-self: center;
+  }
+
+  .entrepreneur-images  {
+    display: none;
+  }
+}

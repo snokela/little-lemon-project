@@ -1,5 +1,6 @@
 import React from "react";
 import navlogo from '../images/nav-logo.png';
+import  './Nav.css'
 
 const Nav = () => {
   return (

@@ -1,0 +1,45 @@
+.footer-container {
+  display: flex;
+  justify-content: space-around; /* Jaa tila tasaisesti */
+  padding: 20px;
+  background-color: #333333;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.footer-logo {
+  margin-top: 45px;
+  height: 130px;
+}
+
+.doormat-navigation ul, .contact ul, .social-media ul {
+  list-style-type: none;
+  padding: 0;
+  color: #edefee;
+}
+
+.doormat-navigation ul li, .contact ul li, .social-media ul li {
+  margin-bottom: 10px;
+}
+
+nav ul li a, .doormat-navigation ul li a {
+  text-decoration: none;
+  color: #edefee;
+}
+
+h4 {
+  color: #edefee;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .doormat-navigation, .contact, .social-media {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import footerlogo from '../images/footer-logo.png';
+import './Footer.css'
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className="footer-container">
         <img src={footerlogo} alt="Litlle lemon logo" className="footer-logo"/>
         <div className="doormat-navigation">
-          <h6>Doormat Navigation</h6>
+          <h4>Doormat Navigation</h4>
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -18,7 +19,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="contact">
-          <h6>Contact</h6>
+          <h4>Contact</h4>
           <ul>
             <li>Address</li>
             <li>Phone number</li>
@@ -26,7 +27,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="social-media">
-          <h6>Social Media Links</h6>
+          <h4>Social Media Links</h4>
           <ul>
             <li>The link to the Facebook icon goes here</li>
             <li>The link to the Instagram icon goes here</li>
