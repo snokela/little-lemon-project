@@ -24,8 +24,7 @@ const FillFormPage = () => {
   const handleSubmit = () => {
     if (
       selectedDate && selectedTime && selectedGroupSize &&
-      firstName && lastName && phone &&
-      (confirmationSMS || confirmationEmail) && acceptChanges
+      firstName && lastName && phone && acceptChanges
     ) {
       setFormValid(true);
       return true;
@@ -83,8 +82,9 @@ const FillFormPage = () => {
           </div>
           <div className="form-group-checkbox">
             <input type="checkbox" id="acceptChanges" checked={acceptChanges} onChange={(e) => setAcceptChanges(e.target.checked)} required />
-            <label htmlFor="acceptChanges">I accept the booking terms and any changes to the Reservation.</label>
+            <label htmlFor="acceptChanges">I accept the booking terms and any changes to the Reservation.*</label>
           </div>
+          {!formValid && <p className="error-message">All required fields must be filled out!</p>}
           <div className="button-group">
             <SubmitButton onSubmit={handleSubmit} to="/confirmation">
               Confirm Reservation
