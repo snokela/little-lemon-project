@@ -9,12 +9,12 @@ const Nav = () => {
       <div className="nav-container">
         <img src={navlogo} alt="Little Lemon Logo" className="nav-logo"/>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><Link to="/select-restaurant">Reservations</Link></li>
-          <li><a href="#orederOnline">Order Online</a></li>
-          <li><a href="#login">Login</a></li>
+          <li><Link to="/" className="link">Home</Link></li>
+          <li><Link to="/about" className="link">About</Link></li>
+          <li><Link to="/menu" className="link">Menu</Link></li>
+          <li><Link to="/select-restaurant" className="link">Reservations</Link></li>
+          <li><Link to="/orederOnline" className="link">Order Online</Link></li>
+          <li><Link to="/login" className="link">Login</Link></li>
         </ul>
       </div>
     </nav>
