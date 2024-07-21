@@ -26,7 +26,7 @@ function App() {
             <Route path="/select-restaurant" element={<SelectRestaurantPage />} />
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/confirmation" element={<ConfirmationPage />} />
-            <Route path="/orederOnline" element={<OrderOnlinePage />} />
+            <Route path="/orderOnline" element={<OrderOnlinePage />} />
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </main>
