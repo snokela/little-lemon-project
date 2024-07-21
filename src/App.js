@@ -4,8 +4,9 @@ import Nav from './components/Nav';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import SelectRestaurantPage from './components/SelectRestaurantPage';
-import FillFormPage from './components/FillFormPage';
+import BookingPage from './components/BookingPage';
 import Footer from './components/Footer';
+import ConfirmationPage from './components/ConfirmationPage';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/select-restaurant" element={<SelectRestaurantPage />} />
-            <Route path="/fill-form" element={<FillFormPage />} />
+            <Route path="/booking" element={<BookingPage />} />
+            <Route path="/confirmation" element={<ConfirmationPage />} />
           </Routes>
         </main>
         <Footer />

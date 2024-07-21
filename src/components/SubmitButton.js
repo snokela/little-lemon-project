@@ -1,19 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './SubmitButton.css'
 
-const SubmitButton = ({ onSubmit, to, children }) => {
-  const navigate = useNavigate();
-
-  const handleClick = (event) => {
-    event.preventDefault();
-    if (onSubmit()) {
-      navigate(to);
-    }
-  };
-
+const SubmitButton = ({ children }) => {
   return (
-    <button className='submit-button' onClick={handleClick}>
+    <button className='submit-button' type="submit">
       {children}
     </button>
   );

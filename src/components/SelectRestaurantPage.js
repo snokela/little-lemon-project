@@ -40,7 +40,7 @@ const SelectRestaurantPage = () => {
             </select>
           </div>
           <div className="button-group">
-            <NavigateButton to="/fill-form">
+            <NavigateButton to="/booking">
               Continue
             </NavigateButton>
             <NavigateButton to="/" >

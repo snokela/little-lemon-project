@@ -1,0 +1,17 @@
+main {
+  background-color: #edefee;;
+ }
+
+ .details-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.details-content h2 {
+  margin-bottom: 10px;
+}
+
+.details-content p {
+  margin-bottom: 20px;
+}

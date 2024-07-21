@@ -1,4 +1,4 @@
-main {
+/* main {
   background-color: #edefee;;
  }
 
@@ -9,14 +9,12 @@ main {
 }
 
 .details-content h2 {
-  /* text-align: center; */
   margin-bottom: 10px;
 }
 
 .details-content p {
-  /* text-align: center; */
   margin-bottom: 20px;
-}
+} */
 
 .personal-details {
   display: flex;
@@ -54,12 +52,14 @@ main {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .error-message {
   color: red;
   text-align: center;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 

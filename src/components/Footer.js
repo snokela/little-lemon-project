@@ -21,9 +21,9 @@ const Footer = () => {
         <div className="contact">
           <h4>Contact</h4>
           <ul>
-            <li>Address</li>
-            <li>Phone number</li>
-            <li>email</li>
+            <li>1234 North Clark Street, Chicago, IL 60610</li>
+            <li>(312) 555-1234</li>
+            <li>littlelemon@littlelemon.com</li>
           </ul>
         </div>
         <div className="social-media">
