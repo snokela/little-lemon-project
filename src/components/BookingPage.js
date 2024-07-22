@@ -1,8 +1,23 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import BookingForm from './BookingForm';
 import './BookingPage.css';
 
+
+const initializeTimes = () => {
+  return ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+};
+
+const updateTimes = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_TIMES':
+      return ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+    default:
+      return state;
+  }
+};
+
 const BookingPage = () => {
+  const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedGroupSize, setSelectedGroupSize] = useState('4');
@@ -19,7 +34,6 @@ const BookingPage = () => {
 
   const handleFormSubmit = (formData) => {
     console.log('Form submitted', formData);
-    // Voit käsitellä lomakkeen tiedot täällä
   };
 
   return (
@@ -27,7 +41,7 @@ const BookingPage = () => {
       <div className="details-content">
         <h2>Personal Details</h2>
         <p>Fill out the details.</p>
-        <BookingForm 
+        <BookingForm
           selectedDate={selectedDate} setSelectedDate={setSelectedDate}
           selectedTime={selectedTime} setSelectedTime={setSelectedTime}
           selectedGroupSize={selectedGroupSize} setSelectedGroupSize={setSelectedGroupSize}
@@ -41,7 +55,9 @@ const BookingPage = () => {
           acceptChanges={acceptChanges} setAcceptChanges={setAcceptChanges}
           formValid={formValid} setFormValid={setFormValid}
           errorMessage={errorMessage} setErrorMessage={setErrorMessage}
-          onSubmit={handleFormSubmit} 
+          onSubmit={handleFormSubmit}
+          availableTimes={availableTimes}
+          dispatch={dispatch}
         />
       </div>
     </main>

@@ -21,9 +21,16 @@ const BookingForm = ({
   acceptChanges, setAcceptChanges,
   formValid, setFormValid,
   errorMessage, setErrorMessage,
-  onSubmit
+  onSubmit,
+  availableTimes,
+  dispatch
 }) => {
   const navigate = useNavigate();
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    dispatch({ type: 'UPDATE_TIMES', payload: date });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,11 +63,11 @@ const BookingForm = ({
     <form className="personal-details" onSubmit={handleSubmit}>
       <div className="form-group">
         <label className='label' htmlFor="datePicker">Date*</label>
-        <DatePickerComponent selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+        <DatePickerComponent selectedDate={selectedDate} setSelectedDate={handleDateChange} />
       </div>
       <div className="form-group">
         <label className='label' htmlFor="timePicker">Time*</label>
-        <TimePickerComponent selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+        <TimePickerComponent selectedTime={selectedTime} setSelectedTime={setSelectedTime} availableTimes={availableTimes}/>
       </div>
       <div className="form-group">
         <label className='label'htmlFor="group-size">Group size*</label>
