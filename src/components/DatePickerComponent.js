@@ -16,4 +16,3 @@ const DatePickerComponent = ({ selectedDate, setSelectedDate }) => {
 };
 
 export default DatePickerComponent;
-

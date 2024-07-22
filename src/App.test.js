@@ -8,11 +8,55 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
 }));
 
-// Test for static text in the BookingForm component
-test('Renders the First Name Label', () => {
+test('Renders the Date Picker with required attribute', () => {
   render(<BookingForm />);
-  const labelElement = screen.getByText("First Name*");
-  expect(labelElement).toBeInTheDocument();
+  const datePicker = screen.getByLabelText(/Date/i);
+  const dateInput = datePicker.querySelector('input') || datePicker;
+  expect(dateInput).toBeRequired();
+});
+
+test('Renders the Time Picker with required attribute', () => {
+  render(<BookingForm />);
+  const timePicker = screen.getByLabelText(/Time/i);
+  const timeInput = timePicker.querySelector('input') || timePicker;
+  expect(timeInput).toBeRequired();
+});
+
+test('Renders the Group Size Picker with required attribute', () => {
+  render(<BookingForm />);
+  const groupSizePicker = screen.getByLabelText(/Group size/i);
+  const groupSizeSelect = groupSizePicker.querySelector('select') || groupSizePicker;
+  expect(groupSizeSelect).toBeRequired();
+});
+test('Renders the First Name input with required attribute', () => {
+  render(<BookingForm />);
+  const firstNameInput = screen.getByLabelText('First Name*');
+  expect(firstNameInput).toBeRequired();
+});
+
+test('Renders the Last Name input with required attribute', () => {
+  render(<BookingForm />);
+  const lastNameInput = screen.getByLabelText('Last Name*');
+  expect(lastNameInput).toBeRequired();
+});
+
+test('Renders the Email input with email type', () => {
+  render(<BookingForm />);
+  const emailInput = screen.getByLabelText('Email');
+  expect(emailInput).toHaveAttribute('type', 'email');
+});
+
+test('Renders the Phone input with required attribute and tel type', () => {
+  render(<BookingForm />);
+  const phoneInput = screen.getByLabelText('Phone*');
+  expect(phoneInput).toBeRequired();
+  expect(phoneInput).toHaveAttribute('type', 'tel');
+});
+
+test('Renders the Accept Changes checkbox with required attribute', () => {
+  render(<BookingForm />);
+  const acceptChangesCheckbox = screen.getByLabelText('I accept the booking terms and any changes to the Reservation.*');
+  expect(acceptChangesCheckbox).toBeRequired();
 });
 
 // Mocking fetchAPI function

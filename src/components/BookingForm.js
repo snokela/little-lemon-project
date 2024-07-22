@@ -22,12 +22,14 @@ const BookingForm = ({
   formValid, setFormValid,
   errorMessage, setErrorMessage,
   onSubmit,
-  availableTimes
+  availableTimes,
+
 }) => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (
       selectedDate && selectedTime && selectedGroupSize &&
       firstName && lastName && phone && acceptChanges
@@ -102,11 +104,10 @@ const BookingForm = ({
       {!formValid && <p className="error-message">{errorMessage}</p>}
       <div className="button-group">
         <SubmitButton>Confirm Reservation</SubmitButton>
-        <NavigateButton to="/">Cancel</NavigateButton>
+        <NavigateButton to="/" aria-label={"Cancel"}>Cancel</NavigateButton>
       </div>
     </form>
   );
 };
 
 export default BookingForm;
-

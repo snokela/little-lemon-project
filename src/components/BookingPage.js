@@ -48,7 +48,7 @@ const BookingPage = () => {
 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
-  const [selectedGroupSize, setSelectedGroupSize] = useState('4');
+  const [selectedGroupSize, setSelectedGroupSize] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
