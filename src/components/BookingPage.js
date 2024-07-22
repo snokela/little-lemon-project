@@ -1,23 +1,50 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import './BookingPage.css';
 
-
-export const initializeTimes = () => {
-  return ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+// Simuloidaan API-funktiot suoraan tässä tiedostossa
+const fetchAPI = async (date) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
+    }, 500);
+  });
 };
 
-export const updateTimes = (state, action) => {
+const submitAPI = async (formData) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, 500);
+  });
+};
+
+export const initializeTimes = async (dispatch) => {
+  const today = new Date().toISOString().split('T')[0];
+  const times = await fetchAPI(today);
+  dispatch({ type: 'INITIALIZE_TIMES', payload: times || [] });
+};
+
+export const updateTimes = async (dispatch, date) => {
+  const times = await fetchAPI(date);
+  dispatch({ type: 'UPDATE_TIMES', payload: times || [] });
+};
+
+const timesReducer = (state, action) => {
   switch (action.type) {
+    case 'INITIALIZE_TIMES':
+      return action.payload;
     case 'UPDATE_TIMES':
-      return ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+      return action.payload;
     default:
       return state;
   }
 };
 
 const BookingPage = () => {
-  const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+  const [availableTimes, dispatch] = useReducer(timesReducer, []);
+
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedGroupSize, setSelectedGroupSize] = useState('4');
@@ -32,8 +59,25 @@ const BookingPage = () => {
   const [formValid, setFormValid] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleFormSubmit = (formData) => {
-    console.log('Form submitted', formData);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    initializeTimes(dispatch);
+  }, [dispatch]);
+
+  const updateTimesHandler = async (date) => {
+    const times = await fetchAPI(date.toISOString().split('T')[0]);
+    dispatch({ type: 'UPDATE_TIMES', payload: times || [] });
+  };
+
+  const submitForm = async (formData) => {
+    const success = await submitAPI(formData);
+    if (success) {
+      navigate('/confirmation');
+      console.log('Form submitted successfully!:', formData)
+    } else {
+      console.error('Form submission failed');
+    }
   };
 
   return (
@@ -42,22 +86,37 @@ const BookingPage = () => {
         <h2>Personal Details</h2>
         <p>Fill out the details.</p>
         <BookingForm
-          selectedDate={selectedDate} setSelectedDate={setSelectedDate}
-          selectedTime={selectedTime} setSelectedTime={setSelectedTime}
-          selectedGroupSize={selectedGroupSize} setSelectedGroupSize={setSelectedGroupSize}
-          firstName={firstName} setFirstName={setFirstName}
-          lastName={lastName} setLastName={setLastName}
-          email={email} setEmail={setEmail}
-          phone={phone} setPhone={setPhone}
-          specialRequest={specialRequest} setSpecialRequest={setSpecialRequest}
-          confirmationSMS={confirmationSMS} setConfirmationSMS={setConfirmationSMS}
-          confirmationEmail={confirmationEmail} setConfirmationEmail={setConfirmationEmail}
-          acceptChanges={acceptChanges} setAcceptChanges={setAcceptChanges}
-          formValid={formValid} setFormValid={setFormValid}
-          errorMessage={errorMessage} setErrorMessage={setErrorMessage}
-          onSubmit={handleFormSubmit}
+          selectedDate={selectedDate}
+          setSelectedDate={(date) => {
+            setSelectedDate(date);
+            updateTimesHandler(date);
+          }}
+          selectedTime={selectedTime}
+          setSelectedTime={setSelectedTime}
+          selectedGroupSize={selectedGroupSize}
+          setSelectedGroupSize={setSelectedGroupSize}
+          firstName={firstName}
+          setFirstName={setFirstName}
+          lastName={lastName}
+          setLastName={setLastName}
+          email={email}
+          setEmail={setEmail}
+          phone={phone}
+          setPhone={setPhone}
+          specialRequest={specialRequest}
+          setSpecialRequest={setSpecialRequest}
+          confirmationSMS={confirmationSMS}
+          setConfirmationSMS={setConfirmationSMS}
+          confirmationEmail={confirmationEmail}
+          setConfirmationEmail={setConfirmationEmail}
+          acceptChanges={acceptChanges}
+          setAcceptChanges={setAcceptChanges}
+          formValid={formValid}
+          setFormValid={setFormValid}
+          errorMessage={errorMessage}
+          setErrorMessage={setErrorMessage}
+          onSubmit={submitForm}
           availableTimes={availableTimes}
-          dispatch={dispatch}
         />
       </div>
     </main>

@@ -18,9 +18,7 @@ jest.mock('react-router-dom', () => ({
 // Test for static text in the BookingForm component
 test('Renders the First Name Label', () => {
   render(
-    <MemoryRouter>
       <BookingForm />
-    </MemoryRouter>
   );
   const labelElement = screen.getByText("First Name*");
   expect(labelElement).toBeInTheDocument();
@@ -29,7 +27,9 @@ test('Renders the First Name Label', () => {
 // Unit test for initializeTimes function
 test('initializeTimes returns the correct array of times', () => {
   const expectedTimes = ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-  expect(initializeTimes()).toEqual(expectedTimes);
+  initializeTimes().then((times) => {
+    expect(times).toEqual(expectedTimes);
+  });
 });
 
 // Unit test for updateTimes function
@@ -37,5 +37,6 @@ test('updateTimes returns the correct array of times for UPDATE_TIMES action', (
   const initialState = [];
   const action = { type: 'UPDATE_TIMES', payload: new Date() };
   const expectedTimes = ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-  expect(updateTimes(initialState, action)).toEqual(expectedTimes);
+  const updateTimesValue = updateTimes(initialState, action);
+  expect(updateTimesValue).toEqual(expectedTimes);
 });

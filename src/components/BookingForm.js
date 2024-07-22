@@ -22,15 +22,9 @@ const BookingForm = ({
   formValid, setFormValid,
   errorMessage, setErrorMessage,
   onSubmit,
-  availableTimes,
-  dispatch
+  availableTimes
 }) => {
   const navigate = useNavigate();
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    dispatch({ type: 'UPDATE_TIMES', payload: date });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,14 +57,14 @@ const BookingForm = ({
     <form className="personal-details" onSubmit={handleSubmit}>
       <div className="form-group">
         <label className='label' htmlFor="datePicker">Date*</label>
-        <DatePickerComponent selectedDate={selectedDate} setSelectedDate={handleDateChange} />
+        <DatePickerComponent selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       </div>
       <div className="form-group">
         <label className='label' htmlFor="timePicker">Time*</label>
-        <TimePickerComponent selectedTime={selectedTime} setSelectedTime={setSelectedTime} availableTimes={availableTimes}/>
+        <TimePickerComponent selectedTime={selectedTime} setSelectedTime={setSelectedTime} availableTimes={availableTimes} />
       </div>
       <div className="form-group">
-        <label className='label'htmlFor="group-size">Group size*</label>
+        <label className='label' htmlFor="group-size">Group size*</label>
         <SelectGroupSizeComponent selectedGroupSize={selectedGroupSize} setSelectedGroupSize={setSelectedGroupSize} />
       </div>
       <div className="form-group">
@@ -79,7 +73,7 @@ const BookingForm = ({
       </div>
       <div className="form-group">
         <label className='label' htmlFor="lastName">Last Name*</label>
-        <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+        <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
       </div>
       <div className="form-group">
         <label className='label' htmlFor="email">Email</label>
@@ -115,3 +109,4 @@ const BookingForm = ({
 };
 
 export default BookingForm;
+

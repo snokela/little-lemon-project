@@ -38,19 +38,19 @@ const SelectRestaurantForm = ({ onSubmit }) => {
         </select>
       </div>
       <div className="form-group">
-        <label className='label' htmlFor="restaurant">Restaurant</label>
-        <select
-          id="restaurant"
-          value={selectedRestaurant}
-          onChange={(e) => setSelectedRestaurant(e.target.value)}
-          required
-        >
-          <option value="" disabled>Select a restaurant</option>
-          <option value="Restaurant A">Chicago, IL</option>
-          <option value="Restaurant B">Milwaukee, WI</option>s
-          <option value="Restaurant C">Evanston, IL</option>
-        </select>
-      </div>
+      <label className='label' htmlFor="restaurant">Restaurant</label>
+      <select
+        id="restaurant"
+        value={selectedRestaurant}
+        onChange={(e) => setSelectedRestaurant(e.target.value)}
+        required
+      >
+        <option value="" disabled>Select a restaurant</option>
+        <option value="Chicago, IL">Chicago, IL</option>
+        <option value="Milwaukee, WI">Milwaukee, WI</option>
+        <option value="Evanston, IL">Evanston, IL</option>
+      </select>
+    </div>
       <div className="button-group">
         <SubmitButton >Continue</SubmitButton>
         <NavigateButton to="/" >
