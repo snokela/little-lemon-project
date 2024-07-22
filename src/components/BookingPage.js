@@ -2,6 +2,7 @@ import React, { useReducer, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import './BookingPage.css';
+import { saveToLocalStorage, loadFromLocalStorage } from '../utils/localStorageUtils';
 
 // Simuloidaan API-funktiot suoraan tässä tiedostossa
 const fetchAPI = async (date) => {
@@ -73,6 +74,7 @@ const BookingPage = () => {
   const submitForm = async (formData) => {
     const success = await submitAPI(formData);
     if (success) {
+      saveToLocalStorage('BookingForm', formData);
       navigate('/confirmation');
       console.log('Form submitted successfully!:', formData)
     } else {

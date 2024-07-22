@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SelectRestaurantForm from './SelectRestaurantForm';
 import './SelectRestaurantPage.css';
+import { saveToLocalStorage, loadFromLocalStorage } from '../utils/localStorageUtils';
 
 const SelectRestaurantPage = () => {
   const [selectedRestaurant, setSelectedRestaurant] = useState('');
@@ -9,6 +10,7 @@ const SelectRestaurantPage = () => {
   const handleFormSubmit = (formData) => {
     setSelectedRestaurant(formData.selectedRestaurant);
     setSelectedOccasion(formData.selectedOccasion);
+    saveToLocalStorage('SelectedRestaurantForm', formData)
     console.log('SelectedRestaurantForm submitted:', formData);
   };
 
