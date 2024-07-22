@@ -1,0 +1,35 @@
+.select-restaurant-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group select {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.label {
+  font-weight: bold;
+}
