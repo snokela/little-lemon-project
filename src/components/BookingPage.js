@@ -3,11 +3,11 @@ import BookingForm from './BookingForm';
 import './BookingPage.css';
 
 
-const initializeTimes = () => {
+export const initializeTimes = () => {
   return ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 };
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
   switch (action.type) {
     case 'UPDATE_TIMES':
       return ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
@@ -65,25 +65,3 @@ const BookingPage = () => {
 };
 
 export default BookingPage;
-
-// import React from 'react';
-// import BookingForm from './BookingForm';
-// import './BookingPage.css'
-
-// const BookingPage = () => {
-//   const handleFormSubmit = () => {
-//     console.log('Form submitted');
-//   };
-
-//   return (
-//     <main>
-//       <div className="details-content">
-//         <h2>Personal Details</h2>
-//         <p>Fill out the details.</p>
-//         <BookingForm onSubmit={handleFormSubmit} />
-//       </div>
-//     </main>
-//   );
-// };
-
-// export default BookingPage;
