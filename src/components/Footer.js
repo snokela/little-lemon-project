@@ -1,6 +1,9 @@
 import React from "react";
 import footerlogo from '../images/footer-logo.png';
 import './Footer.css'
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,12 +13,12 @@ const Footer = () => {
         <div className="doormat-navigation">
           <h4>Doormat Navigation</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#reservations">Reservations</a></li>
-            <li><a href="#orederOnline">Order Online</a></li>
-            <li><a href="#login">Login</a></li>
+          <li><Link to="/" className="doormat-navigation-link">Home</Link></li>
+            <li><Link to="/about" className="doormat-navigation-link">About</Link></li>
+            <li><Link to="/menu" className="doormat-navigation-link">Menu</Link></li>
+            <li><Link to="/select-restaurant" className="doormat-navigation-link">Reservations</Link></li>
+            <li><Link to="/orderOnline" className="doormat-navigation-link">Order Online</Link></li>
+            <li><Link to="/login" className="doormat-navigation-link">Login</Link></li>
           </ul>
         </div>
         <div className="contact">
@@ -28,11 +31,15 @@ const Footer = () => {
         </div>
         <div className="social-media">
           <h4>Social Media Links</h4>
-          <ul>
-            <li>The link to the Facebook icon goes here</li>
-            <li>The link to the Instagram icon goes here</li>
-            <li>The link to the Twitter icon goes here</li>
-          </ul>
+          <a href="https://www.facebook.com" className="social-icon">
+            <FontAwesomeIcon icon={faFacebook} size="2x" />
+          </a>
+          <a href="https://www.twitter.com" className="social-icon">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+          <a href="https://www.instagram.com" className="social-icon">
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>
         </div>
       </div>
     </footer>

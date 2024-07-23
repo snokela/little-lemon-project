@@ -27,9 +27,28 @@ nav ul li a, .doormat-navigation ul li a {
   color: #edefee;
 }
 
+.doormat-navigation-link:hover {
+  color:  #f4ce14;
+}
+
 h4 {
   color: #edefee;
   margin-bottom: 10px;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-icon {
+  margin: 10px;
+  color:  #edefee;
+}
+
+.social-icon:hover {
+  color:  #f4ce14;
 }
 
 @media (max-width: 768px) {

@@ -18,7 +18,7 @@ function App() {
       <div className='app-container'>
         <Nav />
         <Header />
-        <main>
+        <main className='content' >
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />

@@ -14,7 +14,7 @@ const HomePage = () => {
         <section className="specials">
           <div className="specials-header">
             <h2>This week's specials</h2>
-            <NavigateButton>Online Menu</NavigateButton>
+            <NavigateButton to="/orderOnline" >Online Menu</NavigateButton>
           </div>
           <div className="specials-content">
             <div className="special">
